@@ -109,8 +109,11 @@ task.
  | || |  | |  __/| |_| |  _ < | |/ ___ \| |\  | | |
 |___|_|  |_|_|    \___/|_| \_\|_/_/   \_\_| \_| |_|
 
-When bumping the `errorprone` plugin, it is important to keep the `error_prone_core` dependency
-aligned. Please refer to `gradle.properties` for details.
+* When bumping the `errorprone` plugin, it is important to keep the `error_prone_core` dependency
+  aligned. Please refer to `gradle.properties` for details.
+* When bumping `spock` you must stay aligned with the version of Groovy that is used by the current
+   gradle version. E.g. Gradle 8.1.1 uses Groovy 3.0, so you cannot use
+  `org.spockframework:spock-bom:2.3-groovy-4.0` since that specifies Groovy 4.0.
 
 ### Upgrading gradle
 
