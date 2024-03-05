@@ -1,6 +1,6 @@
 # gradle-baseline
 
-[![Build Status](https://github.com/brightsparklabs/gradle-baseline/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/brightsparklabs/gradle-baseline/actions/workflows/unit_tests.yml)
+[![Build Status](https://github.com/brightsparklabs/gradle-baseline/actions/workflows/gradle-plugins.yml/badge.svg)](https://github.com/brightsparklabs/gradle-baseline/actions/workflows/gradle-plugins.yml)
 [![Gradle Plugin](https://img.shields.io/gradle-plugin-portal/v/com.brightsparklabs.gradle.baseline)](https://plugins.gradle.org/plugin/com.brightsparklabs.gradle.baseline)
 
 Applies brightSPARK Labs standardisation to gradle projects.
