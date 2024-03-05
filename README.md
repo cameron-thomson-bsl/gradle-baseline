@@ -1,20 +1,35 @@
 # gradle-baseline
 
-[![Build Status](https://github.com/brightsparklabs/gradle-baseline/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/brightsparklabs/gradle-baseline/actions/workflows/unit_tests.yml)
+[![Build Status](https://github.com/brightsparklabs/gradle-baseline/actions/workflows/gradle-plugins.yml/badge.svg)](https://github.com/brightsparklabs/gradle-baseline/actions/workflows/gradle-plugins.yml)
 [![Gradle Plugin](https://img.shields.io/gradle-plugin-portal/v/com.brightsparklabs.gradle.baseline)](https://plugins.gradle.org/plugin/com.brightsparklabs.gradle.baseline)
 
 Applies brightSPARK Labs standardisation to gradle projects.
 
-**NOTE: This plugin requires JDK 17 or above and Gradle 8.**
+## Compatibility
+
+| Plugin Version | Gradle Version | Java Version
+| -------------- | -------------- | ------------
+| 4.x.y          | 8.x.y          | 17
+| 3.x.y          | 7.x.y          | 17
+| 2.x.y          | 7.x.y          | 11
+| 1.x.y          | 6.x.y          | 11
 
 ## Build
 
 ```shell
 ./gradlew build
-
-# publish
-./gradlew publishPlugins
 ```
+
+## Publishing
+
+To publish a new version:
+
+* Update `gradle.properties` ensuring `versionErrorproneCore` is set appropriately as per the notes
+  in there.
+** **YOU MAY NEED TO ROLLBACK DEPENDABOT UPGRADES to `error_prone_core` PRIOR TO RELASE**
+* Ensure `ERRORPRONE_CORE_VERSION` in `BaselinePlugin.groovy` references the same version.
+* Use `git flow` to merge it into `master`.
+* Push `master` and the CI server will publish via `./gradlew publishPlugins`.
 
 ## Usage
 
@@ -42,7 +57,7 @@ bslBaseline {
                       | * Refer to LICENSE at repository root for license details.
                       | */
                     """.stripMargin("|")
-    
+
     // ------------------------------------------------------------
     // [Optional] S3 bucket file upload configuration.
     // ------------------------------------------------------------
@@ -69,6 +84,8 @@ bslBaseline {
 
 ## Upgrade notes
 
+### Upgrading dependencies
+
 To upgrade the dependencies of this project, in the base directory (which contains the
 `build.gradle` file) run the following command:
 
@@ -86,8 +103,22 @@ run:
 Which will update the `build.gradle` file to use the versions listed by the `useLatestVersionsCheck`
 task.
 
+ ___ __  __ ____   ___  ____ _____  _    _   _ _____
+|_ _|  \/  |  _ \ / _ \|  _ \_   _|/ \  | \ | |_   _|
+ | || |\/| | |_) | | | | |_) || | / _ \ |  \| | | |
+ | || |  | |  __/| |_| |  _ < | |/ ___ \| |\  | | |
+|___|_|  |_|_|    \___/|_| \_\|_/_/   \_\_| \_| |_|
+
+* When bumping the `errorprone` plugin, it is important to keep the `error_prone_core` dependency
+  aligned. Please refer to `gradle.properties` for details.
+* When bumping `spock` you must stay aligned with the version of Groovy that is used by the current
+   gradle version. E.g. Gradle 8.1.1 uses Groovy 3.0, so you cannot use
+  `org.spockframework:spock-bom:2.3-groovy-4.0` since that specifies Groovy 4.0.
+
+### Upgrading gradle
+
 In order to update the gradle version, you should refer to the relevant documentation provided by
-gradle ([Example](https://docs.gradle.org/current/userguide/upgrading_version_7.html)).
+gradle ([Example](https://docs.gradle.org/current/userguide/upgrading_version_8.html)).
 
 ```bash
 # See deprecation warnings in the console.
@@ -99,10 +130,6 @@ After addressing these warnings you can upgrade to the next version of gradle.
 # Set gradle wrapper version.
 gradle wrapper --gradle-version <VERSION>
 ```
-
-When bumping dependencies the `ERRORPRONE_CORE_VERSION` variable in `BaselinePlugin.groovy` must
-match the `error_prone_core` (not the `errorprone.gradle.plugin`) version, read about this in the
-`errorprone.gradle.plugin` [README](https://github.com/tbroyer/gradle-errorprone-plugin).
 
 This plugin should be tested on a local project before pushing, which can be done with the steps
 in the *"Testing during development"* section.
@@ -142,7 +169,7 @@ gradlew --include-build /path/to/gradle-baseline <task>
 - Applies  a `VERSION` file to the root of the JAR containing the project version.
 - Adds a task to upload files to an S3 bucket.
 
-## Allowed Licenses
+## Allowed licenses
 
 By default, only the following licenses for dependencies are allowed:
 
@@ -156,7 +183,7 @@ expose the config file located at `/brightsparklabs/baseline/allowed-licenses.js
 The Documentation for this JSON Format can be found within the [Licence Report
 Docs](https://github.com/jk1/Gradle-License-Report#allowed-licenses-file).
 
-## Bundled Plugins
+## Bundled plugins
 
 The following plugins are currently bundled in automatically:
 
