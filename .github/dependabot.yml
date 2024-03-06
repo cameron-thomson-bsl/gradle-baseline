@@ -13,5 +13,5 @@ updates:
   labels:
   - dependencies
   ignore:
-    - "errorprone"
-    - "spock-bom"
+    - dependency-name: "errorprone"
+    - dependency-name: "spock-bom"
