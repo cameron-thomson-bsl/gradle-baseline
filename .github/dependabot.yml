@@ -12,3 +12,6 @@ updates:
   - adam-kimpton
   labels:
   - dependencies
+  ignore:
+    - "errorprone"
+    - "spock-bom"
