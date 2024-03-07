@@ -11,5 +11,6 @@ updates:
   labels:
   - dependencies
   ignore:
-    - dependency-name: "errorprone"
-    - dependency-name: "spock-bom"
+    - dependency-name: "net.ltgt.errorprone"
+    - dependency-name: "com.google.errorprone:error_prone_core"
+    - dependency-name: "org.spockframework:spock-bom"

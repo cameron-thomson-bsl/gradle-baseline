@@ -81,14 +81,14 @@ dependencies {
 
             // We use `platform` to specify AWS SDK dependencies, as this is recommended by Amazon.
             // See https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup-project-gradle.html
-            platform('software.amazon.awssdk:bom:2.25.3'),
-            'software.amazon.awssdk:s3:'
+            platform(libs.awsSdkBom),
+            libs.awsSdkS3
             )
 
     // Use the awesome Spock testing and specification framework.
     // NOTE: Need to stick with groovy-3.0 until Gradle buildscripts support Groovy 4.
-    testImplementation platform("org.spockframework:spock-bom:2.3-groovy-3.0")
-    testImplementation "org.spockframework:spock-core"
+    testImplementation platform(libs.spockBom)
+    testImplementation libs.spockCore
 }
 
 // -----------------------------------------------------------------------------

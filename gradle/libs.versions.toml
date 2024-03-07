@@ -38,6 +38,8 @@ pluginVersionUseLatestVersions = "0.2.18"
 pluginVersionDependencyCheck = "9.0.9"
 pluginVersionShadow = "8.1.1"
 pluginVersionLicenseReport = "2.5"
+versionAwsSdkBom = "2.25.3"
+versionSpockBom = "2.3-groovy-3.0"
 
 [plugins]
 spotless = { id = "com.diffplug.spotless", version.ref = "pluginVersionSpotless" }
@@ -57,3 +59,7 @@ useLatestVersions = { group = "se.patrikerdes", name = "gradle-use-latest-versio
 dependencyCheck = { group = "org.owasp", name = "dependency-check-gradle", version.ref = "pluginVersionDependencyCheck"}
 shadow = { group = "com.github.johnrengelman.shadow", name = "com.github.johnrengelman.shadow.gradle.plugin", version.ref = "pluginVersionShadow"}
 licenseReport = { group = "com.github.jk1", name = "gradle-license-report", version.ref = "pluginVersionLicenseReport"}
+awsSdkBom = { group = "software.amazon.awssdk", name = "bom", version.ref = "versionAwsSdkBom"}
+awsSdkS3 = { group = "software.amazon.awssdk", name = "s3"}
+spockBom = { group = "org.spockframework", name = "spock-bom", version.ref = "versionSpockBom"}
+spockCore = { group = "org.spockframework", name = "spock-core"}
