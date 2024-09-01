@@ -38,7 +38,7 @@ pluginVersionUseLatestVersions = "0.2.18"
 pluginVersionDependencyCheck = "9.0.9"
 pluginVersionShadow = "8.1.1"
 pluginVersionLicenseReport = "2.8"
-versionAwsSdkBom = "2.26.28"
+versionAwsSdkBom = "2.27.17"
 versionSpockBom = "2.3-groovy-3.0"
 
 [plugins]
