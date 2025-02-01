@@ -1,5 +1,5 @@
 [versions]
-pluginVersionSpotless = "6.25.0"
+pluginVersionSpotless = "7.0.2"
 
 pluginVersionErrorprone = "3.1.0"
 #  ___ __  __ ____   ___  ____ _____  _    _   _ _____
